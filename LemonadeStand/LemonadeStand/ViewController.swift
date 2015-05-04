@@ -20,6 +20,8 @@ class ViewController: UIViewController {
     @IBOutlet weak var mixLemonsLabel: UILabel!
     @IBOutlet weak var mixIceCubesLabel: UILabel!
     
+    @IBOutlet weak var myImageView: UIImageView!
+    
     var inventoryMoney = 20
     var inventoryLemons = 5
     var inventroyIceCubes = 5
@@ -30,11 +32,14 @@ class ViewController: UIViewController {
     var numberLemonsInMix = 0
     var numberIceCubesInMix = 0
     
+    var numberOfCustomersToday = 0
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
         
         updateLabels()
+        weather()
     
     }
 
@@ -60,8 +65,10 @@ class ViewController: UIViewController {
     }
     
     @IBAction func increasePurchaseLemons(sender: UIButton) {
-        if true {
+        if inventoryMoney >= 2 {
             numberLemonsToPurchase += 1
+            inventoryMoney -= 2
+            inventoryLemons += 1
         }
         updateLabels()
     }
@@ -69,13 +76,17 @@ class ViewController: UIViewController {
     @IBAction func decreasePurchaseLemons(sender: UIButton) {
         if numberLemonsToPurchase > 0 {
             numberLemonsToPurchase -= 1
+            inventoryMoney += 2
+            inventoryLemons -= 1
         }
         updateLabels()
     }
     
     @IBAction func increasePurchaseIceCubes(sender: UIButton) {
-        if true {
+        if inventoryMoney >= 1 {
             numberIceCubesToPurchase += 1
+            inventoryMoney -= 1
+            inventroyIceCubes += 1
         }
         updateLabels()
     }
@@ -83,6 +94,8 @@ class ViewController: UIViewController {
     @IBAction func decreasePurchaseIceCubes(sender: UIButton) {
         if numberIceCubesToPurchase > 0 {
             numberIceCubesToPurchase -= 1
+            inventoryMoney += 1
+            inventroyIceCubes -= 1
         }
         updateLabels()
     }
@@ -90,7 +103,7 @@ class ViewController: UIViewController {
     @IBAction func increaseMixLemons(sender: UIButton) {
         if inventoryLemons > 0 {
             numberLemonsInMix += 1
-            inventoryLemons -= 1
+            //inventoryLemons -= 1
         }
         updateLabels()
     }
@@ -98,7 +111,7 @@ class ViewController: UIViewController {
     @IBAction func decreaseMixLemons(sender: UIButton) {
         if numberLemonsInMix > 0 {
             numberLemonsInMix -= 1
-            inventoryLemons += 1
+            //inventoryLemons += 1
         }
         updateLabels()
     }
@@ -106,7 +119,7 @@ class ViewController: UIViewController {
     @IBAction func increaseMixIceCubes(sender: UIButton) {
         if inventroyIceCubes > 0 {
             numberIceCubesInMix += 1
-            inventroyIceCubes -= 1
+            //inventroyIceCubes -= 1
         }
         updateLabels()
     }
@@ -114,14 +127,83 @@ class ViewController: UIViewController {
     @IBAction func decreaseMixIceCubes(sender: UIButton) {
         if numberIceCubesInMix > 0 {
             numberIceCubesInMix -= 1
-            inventroyIceCubes += 1
+            //inventroyIceCubes += 1
         }
         updateLabels()
     }
     
     @IBAction func startDayButtonPressed(sender: UIButton) {
-        let numberOfCustomersToday = Int(arc4random_uniform(UInt32(10)))
-        println("Number of Customers = \(numberOfCustomersToday)")
+        
+        // calculate the lemon to ice cube ration
+        var lemonToIceRatio:Float = 0.00
+        lemonToIceRatio = Float(numberLemonsInMix) / Float(numberIceCubesInMix)
+        println("\(lemonToIceRatio)")
+
+        // calculate the random number of customes for the day
+        numberOfCustomersToday = Int(arc4random_uniform(UInt32(10)))
+        
+        inventoryLemons -= numberLemonsInMix
+        inventroyIceCubes -= numberIceCubesInMix
+        
+        //
+        var customerPreferenceArray:[Float] = []
+        var customerPreference:Float = 0.0
+        
+        for var i = 0; i < numberOfCustomersToday; i++ {
+            let randomPreferenceNumber = Float(arc4random_uniform(UInt32(10))) * 0.1
+            customerPreferenceArray.append(randomPreferenceNumber)
+        }
+        
+        // test
+        for var i = 0; i < numberOfCustomersToday; i++ {
+            println("\(customerPreferenceArray[i])")
+        }
+        
+        // determine how much you get paid
+        for var i = 0; i < numberOfCustomersToday; i++ {
+            if customerPreferenceArray[i] < 0.4 && lemonToIceRatio < 1 {
+                inventoryMoney += 1
+                println("Paid!")
+            } else if customerPreferenceArray[i] >= 0.4 && customerPreferenceArray[i] < 0.6 && lemonToIceRatio == 1 {
+                inventoryMoney += 1
+                println("Paid!")
+            } else if customerPreferenceArray[i] >= 0.6 && customerPreferenceArray[i] <= 1 && lemonToIceRatio > 1 {
+                inventoryMoney += 1
+                println("Paid!")
+            } else {
+                println("Not paid.")
+            }
+        }
+        
+        numberLemonsToPurchase = 0
+        numberIceCubesToPurchase = 0
+        numberLemonsInMix = 0
+        numberIceCubesInMix = 0
+        updateLabels()
+        weather()
+
+    }
+    
+    func weather () {
+        let randomWeatherInt = Int(arc4random_uniform(UInt32(3)))
+        
+        switch randomWeatherInt {
+            
+        case 0:
+            myImageView.image = UIImage(named: "cold")
+            numberOfCustomersToday -= 3
+        case 1:
+            myImageView.image = UIImage(named: "mild")
+        case 2:
+            myImageView.image = UIImage(named: "warm")
+            numberOfCustomersToday += 4
+        default:
+            myImageView.image = UIImage(named: "mild")
+        }
+        
+        if numberOfCustomersToday < 0 {
+            numberOfCustomersToday = 0
+        }
     }
     
 }

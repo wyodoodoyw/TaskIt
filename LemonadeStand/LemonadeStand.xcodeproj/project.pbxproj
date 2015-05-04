@@ -7,10 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		484760BA1AF7ECCF005BC49A /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 484760B91AF7ECCF005BC49A /* Images.xcassets */; };
 		4875C6F71AF05AD600691ADD /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4875C6F61AF05AD600691ADD /* AppDelegate.swift */; };
 		4875C6F91AF05AD600691ADD /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4875C6F81AF05AD600691ADD /* ViewController.swift */; };
 		4875C6FC1AF05AD600691ADD /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4875C6FA1AF05AD600691ADD /* Main.storyboard */; };
-		4875C6FE1AF05AD600691ADD /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4875C6FD1AF05AD600691ADD /* Images.xcassets */; };
 		4875C7011AF05AD600691ADD /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4875C6FF1AF05AD600691ADD /* LaunchScreen.xib */; };
 		4875C70D1AF05AD600691ADD /* LemonadeStandTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4875C70C1AF05AD600691ADD /* LemonadeStandTests.swift */; };
 /* End PBXBuildFile section */
@@ -26,12 +26,12 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		484760B91AF7ECCF005BC49A /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		4875C6F11AF05AD600691ADD /* LemonadeStand.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = LemonadeStand.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4875C6F51AF05AD600691ADD /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		4875C6F61AF05AD600691ADD /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		4875C6F81AF05AD600691ADD /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		4875C6FB1AF05AD600691ADD /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
-		4875C6FD1AF05AD600691ADD /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		4875C7001AF05AD600691ADD /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
 		4875C7061AF05AD600691ADD /* LemonadeStandTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = LemonadeStandTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		4875C70B1AF05AD600691ADD /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -80,8 +80,8 @@
 				4875C6F61AF05AD600691ADD /* AppDelegate.swift */,
 				4875C6F81AF05AD600691ADD /* ViewController.swift */,
 				4875C6FA1AF05AD600691ADD /* Main.storyboard */,
-				4875C6FD1AF05AD600691ADD /* Images.xcassets */,
 				4875C6FF1AF05AD600691ADD /* LaunchScreen.xib */,
+				484760B91AF7ECCF005BC49A /* Images.xcassets */,
 				4875C6F41AF05AD600691ADD /* Supporting Files */,
 			);
 			path = LemonadeStand;
@@ -192,9 +192,9 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				484760BA1AF7ECCF005BC49A /* Images.xcassets in Resources */,
 				4875C6FC1AF05AD600691ADD /* Main.storyboard in Resources */,
 				4875C7011AF05AD600691ADD /* LaunchScreen.xib in Resources */,
-				4875C6FE1AF05AD600691ADD /* Images.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -342,6 +342,8 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				INFOPLIST_FILE = LemonadeStand/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -352,6 +354,8 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				INFOPLIST_FILE = LemonadeStand/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -411,6 +415,7 @@
 				4875C7121AF05AD600691ADD /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		4875C7131AF05AD600691ADD /* Build configuration list for PBXNativeTarget "LemonadeStandTests" */ = {
 			isa = XCConfigurationList;
@@ -419,6 +424,7 @@
 				4875C7151AF05AD600691ADD /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
