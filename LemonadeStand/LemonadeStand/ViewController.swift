@@ -20,21 +20,21 @@ class ViewController: UIViewController {
     @IBOutlet weak var mixLemonsLabel: UILabel!
     @IBOutlet weak var mixIceCubesLabel: UILabel!
     
-    var inventoryMoney = 5
+    var inventoryMoney = 20
     var inventoryLemons = 5
     var inventroyIceCubes = 5
     
-    var numberLemonsToPurchase = 5
-    var numberIceCubesToPurchase = 5
+    var numberLemonsToPurchase = 0
+    var numberIceCubesToPurchase = 0
     
-    var numberLemonsInMix = 5
-    var numberIceCubesInMix = 5
+    var numberLemonsInMix = 0
+    var numberIceCubesInMix = 0
     
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
         
-        setupLabels()
+        updateLabels()
     
     }
 
@@ -43,11 +43,14 @@ class ViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
-    func setupLabels () {
+    func updateLabels () {
         
         youHaveMoneyLabel.text = "$\(inventoryMoney)"
+        youHaveMoneyLabel.textAlignment = NSTextAlignment.Right
         youHaveLemonsLabel.text = "\(inventoryLemons)"
+        youHaveLemonsLabel.textAlignment = NSTextAlignment.Right
         youHaveIceCubesLabel.text = "\(inventroyIceCubes)"
+        youHaveIceCubesLabel.textAlignment = NSTextAlignment.Right
         
         purchaseLemonsLabel.text = "\(numberLemonsToPurchase)"
         purchaseIceCubesLabel.text = "\(numberIceCubesToPurchase)"
@@ -57,30 +60,68 @@ class ViewController: UIViewController {
     }
     
     @IBAction func increasePurchaseLemons(sender: UIButton) {
+        if true {
+            numberLemonsToPurchase += 1
+        }
+        updateLabels()
     }
    
     @IBAction func decreasePurchaseLemons(sender: UIButton) {
+        if numberLemonsToPurchase > 0 {
+            numberLemonsToPurchase -= 1
+        }
+        updateLabels()
     }
     
     @IBAction func increasePurchaseIceCubes(sender: UIButton) {
+        if true {
+            numberIceCubesToPurchase += 1
+        }
+        updateLabels()
     }
     
     @IBAction func decreasePurchaseIceCubes(sender: UIButton) {
+        if numberIceCubesToPurchase > 0 {
+            numberIceCubesToPurchase -= 1
+        }
+        updateLabels()
     }
     
     @IBAction func increaseMixLemons(sender: UIButton) {
+        if inventoryLemons > 0 {
+            numberLemonsInMix += 1
+            inventoryLemons -= 1
+        }
+        updateLabels()
     }
     
     @IBAction func decreaseMixLemons(sender: UIButton) {
+        if numberLemonsInMix > 0 {
+            numberLemonsInMix -= 1
+            inventoryLemons += 1
+        }
+        updateLabels()
     }
     
     @IBAction func increaseMixIceCubes(sender: UIButton) {
+        if inventroyIceCubes > 0 {
+            numberIceCubesInMix += 1
+            inventroyIceCubes -= 1
+        }
+        updateLabels()
     }
     
     @IBAction func decreaseMixIceCubes(sender: UIButton) {
+        if numberIceCubesInMix > 0 {
+            numberIceCubesInMix -= 1
+            inventroyIceCubes += 1
+        }
+        updateLabels()
     }
     
     @IBAction func startDayButtonPressed(sender: UIButton) {
+        let numberOfCustomersToday = Int(arc4random_uniform(UInt32(10)))
+        println("Number of Customers = \(numberOfCustomersToday)")
     }
     
 }
