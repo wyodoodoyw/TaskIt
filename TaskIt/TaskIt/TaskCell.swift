@@ -1,0 +1,29 @@
+
+//
+//  TaskCell.swift
+//  TaskIt
+//
+//  Created by Matthew Wood on 2015-05-13.
+//  Copyright (c) 2015 Matthew. All rights reserved.
+//
+
+import UIKit
+
+class TaskCell: UITableViewCell {
+
+    @IBOutlet weak var taskLabel: UILabel!
+    @IBOutlet weak var descriptionLabel: UILabel!
+    @IBOutlet weak var dateLabel: UILabel!
+    
+    override func awakeFromNib() {
+        super.awakeFromNib()
+        // Initialization code
+    }
+
+    override func setSelected(selected: Bool, animated: Bool) {
+        super.setSelected(selected, animated: animated)
+
+        // Configure the view for the selected state
+    }
+
+}
