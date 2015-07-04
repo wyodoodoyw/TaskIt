@@ -20,7 +20,7 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
         // Do any additional setup after loading the view, typically from a nib.
         
         let task1 = TaskModel(task: "Study Chinese", subTask: "Verbs", date: "01/14/2014")
-        let task2 = TaskModel(task: "Eat Dinne", subTask: "Steak and potatoes", date: "01/14/2014")
+        let task2 = TaskModel(task: "Eat Dinner", subTask: "Steak and potatoes", date: "01/14/2014")
         
         //let task1:Dictionary<String,String> = ["task": "Study Chinese", "subtask": "Verbs", "date": "01/14/2015"]
         //let task2:Dictionary<String,String> = ["task": "Eat Dinner", "subtask": "Steak and potatoes", "date": "01/14/2015"]
@@ -34,6 +34,17 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
+    }
+    
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        
+        if segue.identifier == "showTaskDetail" {
+            
+            let detailVC: TaskDetailViewController = segue.destinationViewController as! TaskDetailViewController
+            let indexPath = self.tableView.indexPathForSelectedRow()
+            let thisTask = taskArray[indexPath!.row]
+            detailVC.detailTaskModel = thisTask
+        }
     }
     
     // ======================================================================
@@ -67,9 +78,11 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
     // ======================================================================
     
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
-        // called when we tap on a specific row in our tableView, know which tableView and indexPath was tapped
+        // called when we tap on a specific row in our tableView, know which tableView and indexPath is tapped
     
+        performSegueWithIdentifier("showTaskDetail", sender: self)
     }
+    
 
 }
 
