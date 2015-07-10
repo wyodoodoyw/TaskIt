@@ -1,0 +1,27 @@
+
+/* Class = "UINavigationItem"; title = "Tasks"; ObjectID = "4tU-eC-hJt"; */
+"4tU-eC-hJt.title" = "Tasks";
+
+/* Class = "UILabel"; text = "Date"; ObjectID = "76N-WO-uVi"; */
+"76N-WO-uVi.text" = "Date";
+
+/* Class = "UITextField"; text = "Task"; ObjectID = "7eX-yF-ohU"; */
+"7eX-yF-ohU.text" = "Task";
+
+/* Class = "UIBarButtonItem"; title = "Cancel"; ObjectID = "9mr-Un-oh4"; */
+"9mr-Un-oh4.title" = "Cancel";
+
+/* Class = "UILabel"; text = "Subtask"; ObjectID = "O3b-ce-YYJ"; */
+"O3b-ce-YYJ.text" = "Subtask";
+
+/* Class = "UILabel"; text = "Task"; ObjectID = "Tbz-Nl-Wnh"; */
+"Tbz-Nl-Wnh.text" = "Task";
+
+/* Class = "UIBarButtonItem"; title = "Done"; ObjectID = "UNS-II-BAX"; */
+"UNS-II-BAX.title" = "Done";
+
+/* Class = "UITextField"; text = "Subtask"; ObjectID = "lEi-f0-kNW"; */
+"lEi-f0-kNW.text" = "Subtask";
+
+/* Class = "UINavigationItem"; title = "Detail"; ObjectID = "rRa-rh-NKf"; */
+"rRa-rh-NKf.title" = "Detail";

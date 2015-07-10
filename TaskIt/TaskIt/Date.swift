@@ -18,10 +18,21 @@ class Date {
         components.month = month
         components.day = day
         
-        var gregorianCalendar = NSCalendar(identifier: NSGregorianCalendar)
+        var gregorianCalendar = NSCalendar(identifier: NSCalendarIdentifierGregorian)
         
         var date = gregorianCalendar?.dateFromComponents(components)
         
         return date!
+    }
+    
+    class func toString(#date: NSDate) -> String {
+        
+        let dateStringFormatter = NSDateFormatter()
+        
+        dateStringFormatter.dateFormat = "yyyy-MM-dd"
+        
+        let dateString = dateStringFormatter.stringFromDate(date)
+        
+        return dateString
     }
 }

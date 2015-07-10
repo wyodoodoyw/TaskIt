@@ -12,6 +12,8 @@ class TaskDetailViewController: UIViewController {
 
     var detailTaskModel: TaskModel!
     
+    var mainVC: ViewController!
+    
     @IBOutlet weak var taskTextFiled: UITextField!
     @IBOutlet weak var subtaskTextField: UITextField!
     @IBOutlet weak var dueDatePicker: UIDatePicker!
@@ -23,11 +25,13 @@ class TaskDetailViewController: UIViewController {
         
         self.taskTextFiled.text = detailTaskModel.task
         self.subtaskTextField.text = detailTaskModel.subTask
+        self.dueDatePicker.date = detailTaskModel.date
     }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
+    
 
 }
