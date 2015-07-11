@@ -171,8 +171,16 @@
                     </view>
                     <toolbarItems/>
                     <navigationItem key="navigationItem" title="Detail" id="rRa-rh-NKf">
-                        <barButtonItem key="leftBarButtonItem" title="Cancel" id="9mr-Un-oh4"/>
-                        <barButtonItem key="rightBarButtonItem" title="Done" id="UNS-II-BAX"/>
+                        <barButtonItem key="leftBarButtonItem" title="Cancel" id="9mr-Un-oh4">
+                            <connections>
+                                <action selector="cancelBarButtonItemPressed:" destination="D9K-e3-vil" id="Uvt-q7-Bdx"/>
+                            </connections>
+                        </barButtonItem>
+                        <barButtonItem key="rightBarButtonItem" title="Done" id="UNS-II-BAX">
+                            <connections>
+                                <action selector="doneBarButtonItemPressed:" destination="D9K-e3-vil" id="IAD-bb-2fx"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                     <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
@@ -267,7 +275,7 @@
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <variation key="heightClass=regular-widthClass=compact" fixedFrame="YES">
-                                    <rect key="frame" x="256" y="20" width="64" height="30"/>
+                                    <rect key="frame" x="232" y="20" width="64" height="30"/>
                                 </variation>
                                 <connections>
                                     <action selector="addTaskButtonPressed:" destination="JAt-3X-hzI" eventType="touchUpInside" id="sXm-cc-Sut"/>

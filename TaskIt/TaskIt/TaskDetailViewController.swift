@@ -12,6 +12,7 @@ class TaskDetailViewController: UIViewController {
 
     var detailTaskModel: TaskModel!
     
+    // creating the variable here, assigned a value in ViewController.swift
     var mainVC: ViewController!
     
     @IBOutlet weak var taskTextFiled: UITextField!
@@ -33,5 +34,17 @@ class TaskDetailViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
+    @IBAction func doneBarButtonItemPressed(sender: UIBarButtonItem) {
+        
+        var task = TaskModel(task: taskTextFiled.text, subTask: subtaskTextField.text, date: dueDatePicker.date)
+        // change the detail of the task at the row
+        mainVC.taskArray[mainVC.tableView.indexPathForSelectedRow()!.row] = task
+        
+        self.navigationController?.popViewControllerAnimated(true)
+    }
 
+    @IBAction func cancelBarButtonItemPressed(sender: UIBarButtonItem) {
+        
+        self.navigationController?.popViewControllerAnimated(true)
+    }
 }

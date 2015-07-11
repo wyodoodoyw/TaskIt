@@ -38,6 +38,14 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
 
     override func viewDidAppear(animated: Bool) {
         super.viewDidAppear(animated)
+        // called everytime this VC reappears after a segue
+        
+        func sortByDate (taskOne: TaskModel, taskTwo: TaskModel) -> Bool {
+            
+            return taskOne.date.timeIntervalSince1970 < taskTwo.date.timeIntervalSince1970
+        }
+        
+        taskArray = taskArray.sorted(sortByDate)
         
         tableView.reloadData()
     }
@@ -54,10 +62,12 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
             let indexPath = self.tableView.indexPathForSelectedRow()
             let thisTask = taskArray[indexPath!.row]
             detailVC.detailTaskModel = thisTask
+            // assigns self to mainVC constant in taskDetailVC
             detailVC.mainVC = self
         }
         else if segue.identifier == "showTaskAdd" {
             let addTaskVC:AddTaskViewController = segue.destinationViewController as! AddTaskViewController
+            // assigns self to mainVC constant in addTaskVC
             addTaskVC.mainVC = self
         }
     }
@@ -104,6 +114,8 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
     
         performSegueWithIdentifier("showTaskDetail", sender: self)
     }
+    
+    // Helpers
     
 
 }
