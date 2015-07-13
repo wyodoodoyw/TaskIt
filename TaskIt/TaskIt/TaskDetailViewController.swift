@@ -36,9 +36,10 @@ class TaskDetailViewController: UIViewController {
     
     @IBAction func doneBarButtonItemPressed(sender: UIBarButtonItem) {
         
-        var task = TaskModel(task: taskTextFiled.text, subTask: subtaskTextField.text, date: dueDatePicker.date)
+        var task = TaskModel(task: taskTextFiled.text, subTask: subtaskTextField.text, date: dueDatePicker.date, completed: false)
         // change the detail of the task at the row
-        mainVC.taskArray[mainVC.tableView.indexPathForSelectedRow()!.row] = task
+        // adds to the first array (uncompleted tasks)
+        mainVC.baseArray[0][mainVC.tableView.indexPathForSelectedRow()!.row] = task
         
         self.navigationController?.popViewControllerAnimated(true)
     }

@@ -29,9 +29,9 @@ class AddTaskViewController: UIViewController {
     }
     
     @IBAction func addTaskButtonPressed(sender: AnyObject) {
-        var task = TaskModel(task: taskTextField.text, subTask: subtaskTextField.text, date: dueDatePicker.date)
+        var task = TaskModel(task: taskTextField.text, subTask: subtaskTextField.text, date: dueDatePicker.date, completed: false)
         // mainVC has a property taskArray that we can add our task to
-        mainVC.taskArray.append(task)
+        mainVC.baseArray[0].append(task)
         // when the user presses the add button, the task is presented in the tableView (after a reload)
         self.dismissViewControllerAnimated(true, completion: nil)
     }

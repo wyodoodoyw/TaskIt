@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		483155831B540CE20062150D /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 483155821B540CE20062150D /* CoreData.framework */; settings = {ATTRIBUTES = (Required, ); }; };
 		48371E231B03DD9100E67153 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48371E221B03DD9100E67153 /* AppDelegate.swift */; };
 		48371E251B03DD9100E67153 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48371E241B03DD9100E67153 /* ViewController.swift */; };
 		48371E281B03DD9100E67153 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 48371E261B03DD9100E67153 /* Main.storyboard */; };
@@ -31,6 +32,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		483155821B540CE20062150D /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
 		48371E1D1B03DD9100E67153 /* TaskIt.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TaskIt.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		48371E211B03DD9100E67153 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		48371E221B03DD9100E67153 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -53,6 +55,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				483155831B540CE20062150D /* CoreData.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -69,6 +72,7 @@
 		48371E141B03DD9100E67153 = {
 			isa = PBXGroup;
 			children = (
+				483155821B540CE20062150D /* CoreData.framework */,
 				48371E1F1B03DD9100E67153 /* TaskIt */,
 				48371E351B03DD9100E67153 /* TaskItTests */,
 				48371E1E1B03DD9100E67153 /* Products */,

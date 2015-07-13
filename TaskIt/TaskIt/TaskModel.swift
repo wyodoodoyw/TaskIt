@@ -14,4 +14,5 @@ struct TaskModel {
     var subTask:String
     //var date:String
     var date:NSDate
+    var completed:Bool
 }
